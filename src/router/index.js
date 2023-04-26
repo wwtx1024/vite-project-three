@@ -35,6 +35,21 @@ const router = createRouter({
             path: '/three06',
             component:()=>import("../views/three06/index.vue"),
             title:"学习直线曲线样条曲线贝塞尔曲线"
+        },
+        {
+            path: '/three07',
+            component:()=>import("../views/three07/index.vue"),
+            title:"学习其他形状"
+        },
+        {
+            path: '/three08',
+            component:()=>import("../views/three08/index.vue"),
+            title:"正投影摄像机"
+        },
+        {
+            path: '/three09',
+            component:()=>import("../views/three09/index.vue"),
+            title:"管道漫游"
         }
     ]
 })

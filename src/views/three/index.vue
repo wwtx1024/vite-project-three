@@ -50,6 +50,15 @@ export default {
         const camera = new THREE.PerspectiveCamera(30, 1000 / 800, 1, 1000)
         camera.position.set(200, 200, 200);
         camera.lookAt(0, 0, 0);
+        
+        /**平行光源和平行光源观察辅助 */
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        // 设置光源的方向：通过光源position属性和目标指向对象的position属性计算
+        directionalLight.position.set(200, 200, 200);
+        // 方向光指向对象网格模型mesh，可以不设置，默认的位置是0,0,0
+        scene.add(directionalLight);
+        const dirLightHelper = new THREE.DirectionalLightHelper(directionalLight, 5, 0xff0000);
+        scene.add(dirLightHelper);
         /**相机控件 */
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.addEventListener('change', function () {
@@ -57,11 +66,11 @@ export default {
         });
 
         onMounted(() => {
-            // render()
+            render()
             renderer.render(scene, camera);
             threedom.value.appendChild(renderer.domElement)
         })
-        
+
         return {
 
             /**变量 */
